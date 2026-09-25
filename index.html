@@ -1,278 +1,167 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Smart Zone Online Service Center — অনলাইন ও ডিজিটাল সেবার সহজ ও নির্ভরযোগ্য প্ল্যাটফর্ম।">
-  <meta name="author" content="Kiran Manna">
-  <title>Smart Zone | Online Service Center</title>
-  <style>
-    :root{
-      --primary:#0b63ce;
-      --primary-dark:#084a9b;
-      --accent:#ff8a00;
-      --ink:#10233f;
-      --muted:#64748b;
-      --bg:#f6f9fc;
-      --card:#ffffff;
-      --line:#e6edf5;
-      --shadow:0 18px 50px rgba(15,43,77,.10);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Bengali",Arial,sans-serif;
-      color:var(--ink); background:var(--bg); line-height:1.7;
-    }
-    a{text-decoration:none;color:inherit}
-    .container{width:min(1120px,92%);margin:auto}
-    header{
-      position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);
-      backdrop-filter:blur(14px);border-bottom:1px solid var(--line)
-    }
-    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
-    .brand-mark{
-      width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
-      color:white;font-size:24px;font-weight:900;
-      background:linear-gradient(135deg,var(--primary),#19a0ff 65%,var(--accent));
-      box-shadow:0 8px 20px rgba(11,99,206,.25)
-    }
-    .brand span{font-size:20px}
-    .brand small{display:block;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.4px}
-    nav{display:flex;gap:24px;align-items:center}
-    nav a{font-size:14px;font-weight:650;color:#334155}
-    nav a:hover{color:var(--primary)}
-    .nav-btn{
-      padding:10px 16px;border-radius:11px;background:var(--primary);color:#fff!important
-    }
-    .hero{padding:84px 0 72px;background:
-      radial-gradient(circle at 85% 20%,rgba(25,160,255,.16),transparent 30%),
-      radial-gradient(circle at 10% 70%,rgba(255,138,0,.10),transparent 26%),
-      #fff
-    }
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:55px;align-items:center}
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;
-      background:#edf6ff;color:var(--primary);font-size:13px;font-weight:750;margin-bottom:18px
-    }
-    h1{font-size:clamp(38px,6vw,64px);line-height:1.08;letter-spacing:-1.5px;margin-bottom:18px}
-    h1 em{font-style:normal;color:var(--primary)}
-    .hero p{font-size:18px;color:var(--muted);max-width:680px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 19px;border-radius:12px;font-weight:750}
-    .btn-primary{background:var(--primary);color:#fff;box-shadow:0 10px 25px rgba(11,99,206,.22)}
-    .btn-light{background:#fff;border:1px solid var(--line);color:var(--ink)}
-    .hero-card{
-      background:linear-gradient(145deg,#0b63ce,#083c83);color:white;border-radius:28px;
-      padding:30px;box-shadow:var(--shadow);position:relative;overflow:hidden
-    }
-    .hero-card:after{
-      content:"";position:absolute;width:190px;height:190px;border-radius:50%;
-      right:-65px;top:-65px;background:rgba(255,255,255,.10)
-    }
-    .hero-card .icon{font-size:46px;margin-bottom:15px}
-    .hero-card h2{font-size:26px;margin-bottom:8px}
-    .hero-card p{color:#dcecff;font-size:15px}
-    .mini-list{margin-top:22px;display:grid;gap:10px}
-    .mini-list div{padding:11px 13px;border:1px solid rgba(255,255,255,.16);border-radius:12px;background:rgba(255,255,255,.07)}
-    section{padding:76px 0}
-    .section-head{text-align:center;max-width:720px;margin:0 auto 38px}
-    .section-head .tag{color:var(--primary);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
-    .section-head h2{font-size:36px;line-height:1.2;margin:8px 0 10px}
-    .section-head p{color:var(--muted)}
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .service{
-      background:var(--card);border:1px solid var(--line);border-radius:20px;padding:25px;
-      box-shadow:0 8px 30px rgba(15,43,77,.05);transition:.2s
-    }
-    .service:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-    .service-icon{font-size:28px;margin-bottom:12px}
-    .service h3{font-size:19px;margin-bottom:6px}
-    .service p{color:var(--muted);font-size:14px}
-    .app-section{background:#0b1728;color:#fff}
-    .app-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:center}
-    .app-wrap h2{font-size:36px;line-height:1.2;margin:10px 0 14px}
-    .app-wrap p{color:#c9d7e8}
-    .app-box{background:#fff;border-radius:20px;padding:8px;box-shadow:var(--shadow)}
-    iframe{width:100%;height:720px;border:0;border-radius:15px;background:#fff}
-    .about{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-    .about-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}
-    .about-card h3{font-size:22px;margin-bottom:10px}
-    .about-card p{color:var(--muted)}
-    .contact-note{
-      text-align:center;background:linear-gradient(135deg,#eaf4ff,#fff6ea);
-      border:1px solid var(--line);border-radius:24px;padding:42px
-    }
-    .contact-note h2{font-size:32px;margin-bottom:8px}
-    .contact-note p{color:var(--muted);max-width:650px;margin:auto}
-    footer{background:#091522;color:#c7d3df;padding:28px 0}
-    .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}
-    footer strong{color:#fff}
-    footer small{color:#8fa0b2}
-    @media(max-width:850px){
-      nav{display:none}
-      .hero-grid,.app-wrap,.about{grid-template-columns:1fr}
-      .hero{padding-top:55px}
-      .services{grid-template-columns:1fr 1fr}
-    }
-    @media(max-width:560px){
-      .services{grid-template-columns:1fr}
-      .nav{height:64px}
-      .brand span{font-size:17px}
-      .hero p{font-size:16px}
-      section{padding:58px 0}
-      .section-head h2,.app-wrap h2{font-size:30px}
-      iframe{height:650px}
-      .footer-row{flex-direction:column;text-align:center}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Smart Zone Online Service — Agriculture ID Card Generator">
+<title>Smart Zone | Online Service</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Bengali",Arial,sans-serif;
+  background:#f4f8fc;color:#12233b;
+}
+.header{
+  background:#fff;border-bottom:1px solid #e5edf5;
+  position:sticky;top:0;z-index:10;
+}
+.header-inner{
+  width:min(1100px,92%);margin:auto;min-height:72px;
+  display:flex;align-items:center;justify-content:center;
+}
+.logo{
+  font-size:26px;font-weight:850;color:#0b63ce;letter-spacing:.2px;
+}
+.hero{
+  min-height:calc(100vh - 72px);
+  display:flex;align-items:center;justify-content:center;
+  padding:55px 18px;
+  background:
+    radial-gradient(circle at 15% 15%,rgba(18,145,255,.12),transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(255,166,0,.10),transparent 28%),
+    #f7fbff;
+}
+.hero-inner{width:min(850px,100%);text-align:center}
+.welcome{
+  font-size:clamp(38px,8vw,70px);line-height:1.05;
+  margin:0 0 12px;font-weight:900;letter-spacing:-1.5px;
+}
+.welcome span{color:#0b63ce}
+.subtitle{
+  margin:0 auto 34px;color:#64748b;font-size:clamp(17px,3vw,22px);
+}
+.generator-card{
+  width:min(520px,100%);margin:auto;padding:34px 25px;
+  background:#fff;border:1px solid #e2ebf4;border-radius:28px;
+  box-shadow:0 20px 55px rgba(22,65,105,.13);
+  cursor:pointer;transition:.22s;
+}
+.generator-card:hover{transform:translateY(-5px);box-shadow:0 25px 65px rgba(22,65,105,.18)}
+.card-icon{
+  width:82px;height:82px;border-radius:22px;margin:0 auto 18px;
+  display:grid;place-items:center;font-size:42px;
+  background:linear-gradient(135deg,#0b63ce,#1ba5ff);color:white;
+}
+.generator-card h2{margin:0 0 8px;font-size:27px}
+.generator-card p{margin:0;color:#64748b}
+.tap{
+  display:inline-block;margin-top:22px;padding:12px 20px;border-radius:12px;
+  background:#0b63ce;color:#fff;font-weight:800;
+}
+.generator-view{
+  display:none;min-height:100vh;background:#0c1b2c;padding:18px 0 35px;
+}
+.generator-top{
+  width:min(1180px,96%);margin:auto;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;margin-bottom:14px;
+}
+.back{
+  border:0;background:#fff;color:#0b63ce;padding:11px 16px;
+  border-radius:11px;font-weight:800;cursor:pointer;
+}
+.generator-title{color:#fff;font-weight:800;font-size:18px}
+.app-shell{
+  width:min(1180px,96%);margin:auto;background:#fff;border-radius:20px;
+  padding:8px;box-shadow:0 18px 55px rgba(0,0,0,.25);
+}
+iframe{
+  width:100%;height:calc(100vh - 105px);min-height:680px;
+  border:0;border-radius:15px;background:#fff;
+}
+.note{
+  width:min(1180px,96%);margin:12px auto 0;color:#b9c9da;
+  text-align:center;font-size:13px;
+}
+footer{padding:24px;text-align:center;color:#7a8a9b;background:#fff}
+.hidden{display:none!important}
+@media(max-width:600px){
+  .header-inner{min-height:62px}
+  .logo{font-size:22px}
+  .hero{min-height:calc(100vh - 62px);padding:35px 14px}
+  .generator-card{padding:28px 20px}
+  .generator-view{padding:10px 0 22px}
+  .generator-top{width:94%;margin-bottom:9px}
+  .generator-title{font-size:15px}
+  .app-shell{width:94%;padding:5px;border-radius:14px}
+  iframe{height:calc(100vh - 92px);min-height:620px;border-radius:10px}
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#home" aria-label="Smart Zone Home">
-        <div class="brand-mark">S</div>
-        <div>
-          <span>Smart Zone</span>
-          <small>ONLINE SERVICE CENTER</small>
-        </div>
-      </a>
-      <nav>
-        <a href="#home">হোম</a>
-        <a href="#services">সেবাসমূহ</a>
-        <a href="#agri">Agri Stack</a>
-        <a href="#about">আমাদের সম্পর্কে</a>
-        <a class="nav-btn" href="#agri">সেবা নিন</a>
-      </nav>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">Smart Zone</div>
+  </div>
+</header>
+
+<main id="home" class="hero">
+  <div class="hero-inner">
+    <h1 class="welcome">Welcome to <span>Smart Zone</span></h1>
+    <p class="subtitle">Online Service</p>
+
+    <div class="generator-card" onclick="openGenerator()" role="button" tabindex="0"
+         onkeydown="if(event.key==='Enter'||event.key===' ')openGenerator()">
+      <div class="card-icon">🪪</div>
+      <h2>Agriculture ID Card Generator</h2>
+      <p>কার্ড তৈরি করতে এখানে ট্যাপ করুন</p>
+      <div class="tap">Generate ID Card →</div>
     </div>
-  </header>
+  </div>
+</main>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">● সহজ • দ্রুত • ডিজিটাল সেবা</div>
-          <h1>Welcome to <em>Smart Zone</em><br>Online Service Center</h1>
-          <p>
-            প্রয়োজনীয় অনলাইন ও ডিজিটাল পরিষেবাকে আরও সহজ, দ্রুত এবং গোছানোভাবে
-            এক জায়গায় পৌঁছে দেওয়ার জন্য Smart Zone।
-          </p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#services">সেবাসমূহ দেখুন</a>
-            <a class="btn btn-light" href="#agri">Agri Stack ID Card</a>
-          </div>
-        </div>
-        <div class="hero-card">
-          <div class="icon">▣</div>
-          <h2>এক জায়গায় প্রয়োজনীয় ডিজিটাল সেবা</h2>
-          <p>অনলাইন আবেদন, ডকুমেন্ট, প্রিন্টিং এবং বিভিন্ন ডিজিটাল পরিষেবার জন্য একটি সহজ প্ল্যাটফর্ম।</p>
-          <div class="mini-list">
-            <div>✓ Online Applications</div>
-            <div>✓ Document & Print Services</div>
-            <div>✓ Digital Assistance</div>
-            <div>✓ Agri Stack ID Card Generator</div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="generator" class="generator-view">
+  <div class="generator-top">
+    <button class="back" onclick="closeGenerator()">← Back</button>
+    <div class="generator-title">Agriculture ID Card Generator</div>
+  </div>
 
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <div class="tag">Our Services</div>
-          <h2>জনপ্রিয় অনলাইন পরিষেবা</h2>
-          <p>আপনার প্রয়োজন অনুযায়ী বিভিন্ন অনলাইন ও ডিজিটাল কাজের জন্য Smart Zone ব্যবহার করুন।</p>
-        </div>
-        <div class="services">
-          <article class="service">
-            <div class="service-icon">📄</div>
-            <h3>অনলাইন আবেদন</h3>
-            <p>বিভিন্ন সরকারি ও অনলাইন পরিষেবার আবেদন প্রক্রিয়ায় সহায়তা।</p>
-          </article>
-          <article class="service">
-            <div class="service-icon">🖨️</div>
-            <h3>প্রিন্ট ও ডকুমেন্ট</h3>
-            <p>প্রয়োজনীয় ডকুমেন্ট, প্রিন্ট, স্ক্যান ও ডিজিটাল ফাইল সংক্রান্ত পরিষেবা।</p>
-          </article>
-          <article class="service">
-            <div class="service-icon">💻</div>
-            <h3>ডিজিটাল সার্ভিস</h3>
-            <p>বিভিন্ন অনলাইন ফর্ম ও ডিজিটাল কাজ সম্পন্ন করার জন্য সহজ সহায়তা।</p>
-          </article>
-          <article class="service">
-            <div class="service-icon">🌐</div>
-            <h3>অনলাইন সাপোর্ট</h3>
-            <p>অনলাইন পরিষেবা ব্যবহারের সময় প্রয়োজনীয় তথ্য ও প্রক্রিয়াগত সহায়তা।</p>
-          </article>
-          <article class="service">
-            <div class="service-icon">🪪</div>
-            <h3>Agri Stack ID Card</h3>
-            <p>এই ওয়েবসাইট থেকেই West Bengal Agri Stack ID Card Generator ব্যবহার করুন।</p>
-          </article>
-          <article class="service">
-            <div class="service-icon">✓</div>
-            <h3>সহজ প্রক্রিয়া</h3>
-            <p>কম ধাপে প্রয়োজনীয় পরিষেবায় পৌঁছানোর জন্য পরিষ্কার ও মোবাইল-ফ্রেন্ডলি ডিজাইন।</p>
-          </article>
-        </div>
-      </div>
-    </section>
+  <div class="app-shell">
+    <iframe
+      src="https://script.google.com/macros/s/AKfycbxQCgGEwL14773SLyPfDnm9L7dWdQ8ELYmZOH4Bz1qu-wYRQvQVtMVPWh16ItDUoIjz3Q/exec"
+      title="Agriculture ID Card Generator"
+      allow="clipboard-read; clipboard-write"
+      loading="eager">
+    </iframe>
+  </div>
 
-    <section class="app-section" id="agri">
-      <div class="container app-wrap">
-        <div>
-          <div class="tag" style="color:#7ec4ff">DIGITAL TOOL</div>
-          <h2>West Bengal Agri Stack<br>ID Card Generator</h2>
-          <p>Smart Zone-এর ভিতর থেকেই প্রয়োজনীয় তথ্য দিয়ে Agri Stack ID Card Generator ব্যবহার করুন।</p>
-        </div>
-        <div class="app-box">
-          <iframe
-            src="https://script.google.com/macros/s/AKfycbxQCgGEwL14773SLyPfDnm9L7dWdQ8ELYmZOH4Bz1qu-wYRQvQVtMVPWh16ItDUoIjz3Q/exec"
-            title="West Bengal Agri Stack ID Card Generator"
-            loading="lazy"
-            allow="clipboard-read; clipboard-write">
-          </iframe>
-        </div>
-      </div>
-    </section>
+  <div class="note">Smart Zone • Agriculture ID Card Generator</div>
+</section>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <div class="tag">About Smart Zone</div>
-          <h2>বিশ্বাসযোগ্য ডিজিটাল সেবার একটি ঠিকানা</h2>
-          <p>ব্যক্তিগত প্রোফাইলের বদলে Smart Zone-কে একটি পরিষেবা-কেন্দ্রিক ব্র্যান্ড হিসেবে উপস্থাপন করা হয়েছে।</p>
-        </div>
-        <div class="about">
-          <div class="about-card">
-            <h3>Smart Zone কী?</h3>
-            <p>Smart Zone Online Service Center হলো অনলাইন ও ডিজিটাল পরিষেবাগুলোকে সহজভাবে ব্যবহার করার একটি সার্ভিস প্ল্যাটফর্ম।</p>
-          </div>
-          <div class="about-card">
-            <h3>আমাদের লক্ষ্য</h3>
-            <p>জটিল অনলাইন কাজকে সহজ ভাষা, পরিষ্কার নির্দেশনা এবং মোবাইল-ফ্রেন্ডলি অভিজ্ঞতার মাধ্যমে আরও ব্যবহারযোগ্য করা।</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<footer id="footer">Smart Zone · Online Service</footer>
 
-    <section>
-      <div class="container">
-        <div class="contact-note">
-          <h2>Smart Zone-এর সঙ্গে যুক্ত থাকুন</h2>
-          <p>যোগাযোগের তথ্য প্রয়োজন হলে পরে এই অংশে ফোন, WhatsApp, ইমেল বা অন্যান্য যোগাযোগের মাধ্যম যোগ করা যাবে।</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-row">
-      <div><strong>Smart Zone</strong> · Online Service Center</div>
-      <small>© 2026 Smart Zone. All rights reserved.</small>
-    </div>
-  </footer>
+<script>
+function openGenerator(){
+  document.getElementById('home').classList.add('hidden');
+  document.getElementById('footer').classList.add('hidden');
+  document.getElementById('generator').style.display='block';
+  window.scrollTo({top:0,behavior:'instant'});
+  history.pushState({generator:true},'', '#agriculture-id-card');
+}
+function closeGenerator(){
+  document.getElementById('generator').style.display='none';
+  document.getElementById('home').classList.remove('hidden');
+  document.getElementById('footer').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'instant'});
+  history.pushState({},'', location.pathname);
+}
+window.addEventListener('popstate',function(){
+  document.getElementById('generator').style.display='none';
+  document.getElementById('home').classList.remove('hidden');
+  document.getElementById('footer').classList.remove('hidden');
+});
+</script>
 </body>
 </html>
-<!-- Site owner metadata is intentionally not displayed publicly. -->
