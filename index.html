@@ -1,162 +1,278 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kiran Manna - Smart Zone Online Service Center">
-<title>Kiran Manna | Smart Zone</title>
-<style>
-:root{
-  --green:#087443; --green2:#0d9256; --dark:#10261d; --text:#18372a;
-  --muted:#64766e; --bg:#f5faf7; --card:#fff; --line:#dcebe3;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:system-ui,-apple-system,"Segoe UI",Noto Sans Bengali,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-a{text-decoration:none;color:inherit}
-.container{width:min(1120px,calc(100% - 32px));margin:auto}
-nav{position:sticky;top:0;z-index:50;background:rgba(245,250,247,.88);backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:1.3rem;font-weight:850;letter-spacing:-.04em}.logo span{color:var(--green)}
-.links{display:flex;gap:24px;color:var(--muted);font-weight:600}
-.links a:hover{color:var(--green)}
-.hero{padding:80px 0 70px;background:radial-gradient(circle at 90% 15%,#d9f4e5,transparent 32%)}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center}
-.badge{display:inline-block;padding:7px 13px;border-radius:999px;background:#e5f6ec;color:var(--green);font-weight:800;font-size:.86rem;margin-bottom:18px}
-h1{font-size:clamp(3rem,7vw,5.8rem);line-height:.96;letter-spacing:-.065em}
-h1 span{color:var(--green)}
-.lead{margin-top:22px;color:var(--muted);font-size:1.1rem;max-width:650px}
-.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.btn{min-height:48px;padding:0 19px;border-radius:14px;border:1px solid var(--line);background:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;transition:.2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px #174e3315}
-.primary{background:var(--green);color:#fff;border-color:var(--green)}
-.primary:hover{background:#075b35}
-.profile{background:linear-gradient(145deg,#dff5e8,#fff 60%,#eef8df);border:1px solid var(--line);border-radius:32px;padding:25px;box-shadow:0 22px 55px #164c3218}
-.photo{width:100%;aspect-ratio:1/1.05;border-radius:24px;object-fit:cover;object-position:center top;background:#e9f0ed}
-.photo-note{margin-top:10px;color:#7b8c84;font-size:.78rem}
-.profile h2{margin-top:18px;font-size:1.7rem}.profile p{color:var(--muted)}
-section{padding:78px 0}
-.head{margin-bottom:28px}.head h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.04em}.head p{color:var(--muted);max-width:650px;margin-top:7px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:25px;box-shadow:0 12px 30px #174e3208}
-.icon{font-size:1.7rem}.card h3{margin-top:12px}.card p{margin-top:7px;color:var(--muted)}
-.app{background:var(--dark);border-radius:32px;padding:30px;box-shadow:0 22px 55px #123c281f}
-.app-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px;color:#fff}
-.app-head p{color:#b8cdc4;margin-top:4px}
-.frame{width:100%;height:760px;border:0;border-radius:20px;background:#fff}
-.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.contact{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px}
-.contact small{color:var(--muted)}.contact a{display:block;margin-top:5px;font-weight:800;color:var(--green);word-break:break-word}
-footer{border-top:1px solid var(--line);padding:35px 0;color:var(--muted)}
-.footer{display:flex;justify-content:space-between;gap:20px}
-@media(max-width:800px){
- .links{display:none}.hero{padding-top:55px}.hero-grid,.contact-grid{grid-template-columns:1fr}
- .cards{grid-template-columns:1fr}.profile{max-width:520px;margin:auto}
- .app{padding:16px}.frame{height:650px}.app-head{align-items:flex-start;flex-direction:column}
- .footer{flex-direction:column}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart Zone Online Service Center — অনলাইন ও ডিজিটাল সেবার সহজ ও নির্ভরযোগ্য প্ল্যাটফর্ম।">
+  <meta name="author" content="Kiran Manna">
+  <title>Smart Zone | Online Service Center</title>
+  <style>
+    :root{
+      --primary:#0b63ce;
+      --primary-dark:#084a9b;
+      --accent:#ff8a00;
+      --ink:#10233f;
+      --muted:#64748b;
+      --bg:#f6f9fc;
+      --card:#ffffff;
+      --line:#e6edf5;
+      --shadow:0 18px 50px rgba(15,43,77,.10);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Bengali",Arial,sans-serif;
+      color:var(--ink); background:var(--bg); line-height:1.7;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);
+      backdrop-filter:blur(14px);border-bottom:1px solid var(--line)
+    }
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+    .brand-mark{
+      width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+      color:white;font-size:24px;font-weight:900;
+      background:linear-gradient(135deg,var(--primary),#19a0ff 65%,var(--accent));
+      box-shadow:0 8px 20px rgba(11,99,206,.25)
+    }
+    .brand span{font-size:20px}
+    .brand small{display:block;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.4px}
+    nav{display:flex;gap:24px;align-items:center}
+    nav a{font-size:14px;font-weight:650;color:#334155}
+    nav a:hover{color:var(--primary)}
+    .nav-btn{
+      padding:10px 16px;border-radius:11px;background:var(--primary);color:#fff!important
+    }
+    .hero{padding:84px 0 72px;background:
+      radial-gradient(circle at 85% 20%,rgba(25,160,255,.16),transparent 30%),
+      radial-gradient(circle at 10% 70%,rgba(255,138,0,.10),transparent 26%),
+      #fff
+    }
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:55px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;
+      background:#edf6ff;color:var(--primary);font-size:13px;font-weight:750;margin-bottom:18px
+    }
+    h1{font-size:clamp(38px,6vw,64px);line-height:1.08;letter-spacing:-1.5px;margin-bottom:18px}
+    h1 em{font-style:normal;color:var(--primary)}
+    .hero p{font-size:18px;color:var(--muted);max-width:680px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 19px;border-radius:12px;font-weight:750}
+    .btn-primary{background:var(--primary);color:#fff;box-shadow:0 10px 25px rgba(11,99,206,.22)}
+    .btn-light{background:#fff;border:1px solid var(--line);color:var(--ink)}
+    .hero-card{
+      background:linear-gradient(145deg,#0b63ce,#083c83);color:white;border-radius:28px;
+      padding:30px;box-shadow:var(--shadow);position:relative;overflow:hidden
+    }
+    .hero-card:after{
+      content:"";position:absolute;width:190px;height:190px;border-radius:50%;
+      right:-65px;top:-65px;background:rgba(255,255,255,.10)
+    }
+    .hero-card .icon{font-size:46px;margin-bottom:15px}
+    .hero-card h2{font-size:26px;margin-bottom:8px}
+    .hero-card p{color:#dcecff;font-size:15px}
+    .mini-list{margin-top:22px;display:grid;gap:10px}
+    .mini-list div{padding:11px 13px;border:1px solid rgba(255,255,255,.16);border-radius:12px;background:rgba(255,255,255,.07)}
+    section{padding:76px 0}
+    .section-head{text-align:center;max-width:720px;margin:0 auto 38px}
+    .section-head .tag{color:var(--primary);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+    .section-head h2{font-size:36px;line-height:1.2;margin:8px 0 10px}
+    .section-head p{color:var(--muted)}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{
+      background:var(--card);border:1px solid var(--line);border-radius:20px;padding:25px;
+      box-shadow:0 8px 30px rgba(15,43,77,.05);transition:.2s
+    }
+    .service:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .service-icon{font-size:28px;margin-bottom:12px}
+    .service h3{font-size:19px;margin-bottom:6px}
+    .service p{color:var(--muted);font-size:14px}
+    .app-section{background:#0b1728;color:#fff}
+    .app-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:center}
+    .app-wrap h2{font-size:36px;line-height:1.2;margin:10px 0 14px}
+    .app-wrap p{color:#c9d7e8}
+    .app-box{background:#fff;border-radius:20px;padding:8px;box-shadow:var(--shadow)}
+    iframe{width:100%;height:720px;border:0;border-radius:15px;background:#fff}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    .about-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}
+    .about-card h3{font-size:22px;margin-bottom:10px}
+    .about-card p{color:var(--muted)}
+    .contact-note{
+      text-align:center;background:linear-gradient(135deg,#eaf4ff,#fff6ea);
+      border:1px solid var(--line);border-radius:24px;padding:42px
+    }
+    .contact-note h2{font-size:32px;margin-bottom:8px}
+    .contact-note p{color:var(--muted);max-width:650px;margin:auto}
+    footer{background:#091522;color:#c7d3df;padding:28px 0}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    footer strong{color:#fff}
+    footer small{color:#8fa0b2}
+    @media(max-width:850px){
+      nav{display:none}
+      .hero-grid,.app-wrap,.about{grid-template-columns:1fr}
+      .hero{padding-top:55px}
+      .services{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:560px){
+      .services{grid-template-columns:1fr}
+      .nav{height:64px}
+      .brand span{font-size:17px}
+      .hero p{font-size:16px}
+      section{padding:58px 0}
+      .section-head h2,.app-wrap h2{font-size:30px}
+      iframe{height:650px}
+      .footer-row{flex-direction:column;text-align:center}
+    }
+  </style>
 </head>
 <body>
-
-<nav>
-  <div class="container nav">
-    <a class="logo" href="#home">Kiran<span>Manna</span></a>
-    <div class="links">
-      <a href="#about">আমার সম্পর্কে</a>
-      <a href="#services">পরিষেবা</a>
-      <a href="#app">আমার অ্যাপ</a>
-      <a href="#contact">যোগাযোগ</a>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Smart Zone Home">
+        <div class="brand-mark">S</div>
+        <div>
+          <span>Smart Zone</span>
+          <small>ONLINE SERVICE CENTER</small>
+        </div>
+      </a>
+      <nav>
+        <a href="#home">হোম</a>
+        <a href="#services">সেবাসমূহ</a>
+        <a href="#agri">Agri Stack</a>
+        <a href="#about">আমাদের সম্পর্কে</a>
+        <a class="nav-btn" href="#agri">সেবা নিন</a>
+      </nav>
     </div>
-  </div>
-</nav>
+  </header>
 
-<main id="home">
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <div class="badge">Smart Zone • Online Service Center</div>
-      <h1>আমি <span>Kiran Manna</span></h1>
-      <p class="lead">
-        Smart Zone-এর মাধ্যমে বিভিন্ন অনলাইন পরিষেবা ও ডিজিটাল কাজ সহজভাবে সম্পন্ন করার চেষ্টা করি।
-        আমার ব্যক্তিগত ওয়েবসাইটে আপনাকে স্বাগতম।
-      </p>
-      <div class="buttons">
-        <a class="btn primary" href="#app">আমার অনলাইন অ্যাপ ↓</a>
-        <a class="btn" href="tel:+917718666104">📞 ফোন করুন</a>
-        <a class="btn" href="https://wa.me/917718666104" target="_blank" rel="noopener">💬 WhatsApp</a>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">● সহজ • দ্রুত • ডিজিটাল সেবা</div>
+          <h1>Welcome to <em>Smart Zone</em><br>Online Service Center</h1>
+          <p>
+            প্রয়োজনীয় অনলাইন ও ডিজিটাল পরিষেবাকে আরও সহজ, দ্রুত এবং গোছানোভাবে
+            এক জায়গায় পৌঁছে দেওয়ার জন্য Smart Zone।
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#services">সেবাসমূহ দেখুন</a>
+            <a class="btn btn-light" href="#agri">Agri Stack ID Card</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="icon">▣</div>
+          <h2>এক জায়গায় প্রয়োজনীয় ডিজিটাল সেবা</h2>
+          <p>অনলাইন আবেদন, ডকুমেন্ট, প্রিন্টিং এবং বিভিন্ন ডিজিটাল পরিষেবার জন্য একটি সহজ প্ল্যাটফর্ম।</p>
+          <div class="mini-list">
+            <div>✓ Online Applications</div>
+            <div>✓ Document & Print Services</div>
+            <div>✓ Digital Assistance</div>
+            <div>✓ Agri Stack ID Card Generator</div>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="tag">Our Services</div>
+          <h2>জনপ্রিয় অনলাইন পরিষেবা</h2>
+          <p>আপনার প্রয়োজন অনুযায়ী বিভিন্ন অনলাইন ও ডিজিটাল কাজের জন্য Smart Zone ব্যবহার করুন।</p>
+        </div>
+        <div class="services">
+          <article class="service">
+            <div class="service-icon">📄</div>
+            <h3>অনলাইন আবেদন</h3>
+            <p>বিভিন্ন সরকারি ও অনলাইন পরিষেবার আবেদন প্রক্রিয়ায় সহায়তা।</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">🖨️</div>
+            <h3>প্রিন্ট ও ডকুমেন্ট</h3>
+            <p>প্রয়োজনীয় ডকুমেন্ট, প্রিন্ট, স্ক্যান ও ডিজিটাল ফাইল সংক্রান্ত পরিষেবা।</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">💻</div>
+            <h3>ডিজিটাল সার্ভিস</h3>
+            <p>বিভিন্ন অনলাইন ফর্ম ও ডিজিটাল কাজ সম্পন্ন করার জন্য সহজ সহায়তা।</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">🌐</div>
+            <h3>অনলাইন সাপোর্ট</h3>
+            <p>অনলাইন পরিষেবা ব্যবহারের সময় প্রয়োজনীয় তথ্য ও প্রক্রিয়াগত সহায়তা।</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">🪪</div>
+            <h3>Agri Stack ID Card</h3>
+            <p>এই ওয়েবসাইট থেকেই West Bengal Agri Stack ID Card Generator ব্যবহার করুন।</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">✓</div>
+            <h3>সহজ প্রক্রিয়া</h3>
+            <p>কম ধাপে প্রয়োজনীয় পরিষেবায় পৌঁছানোর জন্য পরিষ্কার ও মোবাইল-ফ্রেন্ডলি ডিজাইন।</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="agri">
+      <div class="container app-wrap">
+        <div>
+          <div class="tag" style="color:#7ec4ff">DIGITAL TOOL</div>
+          <h2>West Bengal Agri Stack<br>ID Card Generator</h2>
+          <p>Smart Zone-এর ভিতর থেকেই প্রয়োজনীয় তথ্য দিয়ে Agri Stack ID Card Generator ব্যবহার করুন।</p>
+        </div>
+        <div class="app-box">
+          <iframe
+            src="https://script.google.com/macros/s/AKfycbxQCgGEwL14773SLyPfDnm9L7dWdQ8ELYmZOH4Bz1qu-wYRQvQVtMVPWh16ItDUoIjz3Q/exec"
+            title="West Bengal Agri Stack ID Card Generator"
+            loading="lazy"
+            allow="clipboard-read; clipboard-write">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="tag">About Smart Zone</div>
+          <h2>বিশ্বাসযোগ্য ডিজিটাল সেবার একটি ঠিকানা</h2>
+          <p>ব্যক্তিগত প্রোফাইলের বদলে Smart Zone-কে একটি পরিষেবা-কেন্দ্রিক ব্র্যান্ড হিসেবে উপস্থাপন করা হয়েছে।</p>
+        </div>
+        <div class="about">
+          <div class="about-card">
+            <h3>Smart Zone কী?</h3>
+            <p>Smart Zone Online Service Center হলো অনলাইন ও ডিজিটাল পরিষেবাগুলোকে সহজভাবে ব্যবহার করার একটি সার্ভিস প্ল্যাটফর্ম।</p>
+          </div>
+          <div class="about-card">
+            <h3>আমাদের লক্ষ্য</h3>
+            <p>জটিল অনলাইন কাজকে সহজ ভাষা, পরিষ্কার নির্দেশনা এবং মোবাইল-ফ্রেন্ডলি অভিজ্ঞতার মাধ্যমে আরও ব্যবহারযোগ্য করা।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="contact-note">
+          <h2>Smart Zone-এর সঙ্গে যুক্ত থাকুন</h2>
+          <p>যোগাযোগের তথ্য প্রয়োজন হলে পরে এই অংশে ফোন, WhatsApp, ইমেল বা অন্যান্য যোগাযোগের মাধ্যম যোগ করা যাবে।</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div><strong>Smart Zone</strong> · Online Service Center</div>
+      <small>© 2026 Smart Zone. All rights reserved.</small>
     </div>
-
-    <aside class="profile">
-      <img class="photo" src="profile.jpg" alt="Kiran Manna">
-      <div class="photo-note">আপনার দেওয়া ছবিটি এখানে <b>profile.jpg</b> নামে রাখুন।</div>
-      <h2>Kiran Manna</h2>
-      <p>Owner / Operator — Smart Zone Online Service Center</p>
-    </aside>
-  </div>
-</section>
-
-<section id="about">
- <div class="container">
-  <div class="head">
-   <h2>আমার সম্পর্কে</h2>
-   <p>আমি Kiran Manna। আমার Smart Zone Online Service Center-এর মাধ্যমে সাধারণ মানুষের জন্য প্রয়োজনীয় অনলাইন ও ডিজিটাল পরিষেবা দেওয়ার কাজ করি।</p>
-  </div>
-  <div class="cards">
-   <article class="card"><div class="icon">💻</div><h3>Online Services</h3><p>বিভিন্ন অনলাইন আবেদন, ডিজিটাল কাজ এবং প্রয়োজনীয় পরিষেবায় সহায়তা।</p></article>
-   <article class="card"><div class="icon">🏪</div><h3>Smart Zone</h3><p>স্থানীয়ভাবে অনলাইন পরিষেবা পাওয়ার জন্য একটি সহজ ও পরিচিত সার্ভিস সেন্টার।</p></article>
-   <article class="card"><div class="icon">🌱</div><h3>Agri Stack</h3><p>West Bengal Agri Stack ID Card Generator-সহ আপনার অনলাইন ডিজিটাল কাজের সুবিধা।</p></article>
-  </div>
- </div>
-</section>
-
-<section id="services">
- <div class="container">
-  <div class="head">
-   <h2>আমার পরিষেবা</h2>
-   <p>আপনার Smart Zone-এর প্রকৃত পরিষেবাগুলি চাইলে পরে এই অংশে আরও নির্দিষ্টভাবে যোগ করা যাবে।</p>
-  </div>
-  <div class="cards">
-   <article class="card"><div class="icon">🧾</div><h3>অনলাইন আবেদন</h3><p>বিভিন্ন সরকারি ও বেসরকারি অনলাইন ফর্ম/আবেদনে সহায়তা।</p></article>
-   <article class="card"><div class="icon">🖨️</div><h3>ডিজিটাল সাপোর্ট</h3><p>প্রিন্ট, স্ক্যান, ডকুমেন্ট ও অন্যান্য ডিজিটাল কাজের সহায়তা।</p></article>
-   <article class="card"><div class="icon">🪪</div><h3>Agri Stack ID Card</h3><p>নিচের অ্যাপটি সরাসরি এই ওয়েবসাইট থেকেই ব্যবহার করতে পারবেন।</p></article>
-  </div>
- </div>
-</section>
-
-<section id="app">
- <div class="container">
-  <div class="app">
-   <div class="app-head">
-    <div>
-      <h2>West Bengal Agri Stack</h2>
-      <p>ID Card Generator — এই ওয়েবসাইটের মধ্যেই ব্যবহার করুন।</p>
-    </div>
-    <a class="btn" href="https://script.google.com/macros/s/AKfycbxQCgGEwL14773SLyPfDnm9L7dWdQ8ELYmZOH4Bz1qu-wYRQvQVtMVPWh16ItDUoIjz3Q/exec" target="_blank" rel="noopener">Full Screen ↗</a>
-   </div>
-   <iframe class="frame" src="https://script.google.com/macros/s/AKfycbxQCgGEwL14773SLyPfDnm9L7dWdQ8ELYmZOH4Bz1qu-wYRQvQVtMVPWh16ItDUoIjz3Q/exec" title="West Bengal Agri Stack ID Card Generator" loading="lazy"></iframe>
-  </div>
- </div>
-</section>
-
-<section id="contact">
- <div class="container">
-  <div class="head"><h2>যোগাযোগ করুন</h2><p>Smart Zone বা অনলাইন পরিষেবা সম্পর্কে জানতে সরাসরি যোগাযোগ করতে পারেন।</p></div>
-  <div class="contact-grid">
-   <div class="contact"><small>📞 Mobile / WhatsApp</small><a href="tel:+917718666104">7718666104</a></div>
-   <div class="contact"><small>✉️ Email</small><a href="mailto:kiranmanna71@gmail.com">kiranmanna71@gmail.com</a></div>
-  </div>
- </div>
-</section>
-</main>
-
-<footer>
- <div class="container footer">
-  <div>© <span id="year"></span> Kiran Manna • Smart Zone</div>
-  <div>Online Service Center</div>
- </div>
-</footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  </footer>
 </body>
 </html>
+<!-- Site owner metadata is intentionally not displayed publicly. -->
